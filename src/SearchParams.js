@@ -16,11 +16,12 @@ const SearchParams = () => {
     setBreeds([]);
     setBreed("");
 
-    pet.breeds(animal).then(({ breeds }) => {
-      const breedStrings = breeds.map(({ name }) => name);
+    pet.breeds(animal).then(({ breeds: apiBreeds }) => {
+      const breedStrings = apiBreeds.map(({ name }) => name);
       setBreeds(breedStrings);
     }, console.error);
   }, [animal, setBreeds, setBreed]);
+  // ^^^ To run once use an empty array, remove array to run everytime smth updates
 
   return (
     <div className="search-params">
